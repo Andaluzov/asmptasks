@@ -1,7 +1,6 @@
-my_file = open ('input.txt','r')
-my_file.seek(0)
+my_file = open ('input.txt')
 ll = my_file.read()
-file_out = open('output.txt', 'w+')
+file_out = open('output.txt', 'w')
 
 if len(ll) == 5:
     if '-' in ll and ll[2] == '-':
