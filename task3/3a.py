@@ -9,7 +9,9 @@ if x >0 and x < 4*100000:
     if b == 5:
         p = True
         rez = str(a*(a+1))+'25'
-
+else:
+    p = False
+    
 if p:
     with open('output.txt', 'w') as file_out:
         file_out.write(rez)
