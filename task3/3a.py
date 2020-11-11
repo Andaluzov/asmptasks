@@ -1,21 +1,22 @@
-with open('input.txt', 'r') as file_in:
-    x = int(file_in.readline())
-p = False
+
+file_in = open("input.txt")
+file_out = open("output.txt", "w")
+x = int(file_in.readline())
 
 if x >0 and x < 4*100000:
     a = x//10
-    b = x-(a*10)
+    if a == 0:
+        rez = str(x * x)
+    else:
+        b = x-(a*10)
+        if b == 5:
+            rez = str(a*(a+1))+'25'
+        else:
+            rez = str(x*x)
+else:
+    rez=''
 
-    if b == 5:
-        p = True
-        rez = str(a*(a+1))+'25'
-else:
-    p = False
-    
-if p:
-    with open('output.txt', 'w') as file_out:
-        file_out.write(rez)
-else:
-    with open('output.txt', 'w') as file_out:
-        file_out.write('')
+file_out.write(rez)
+file_in.close()
+file_out.close()
 

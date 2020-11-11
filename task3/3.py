@@ -5,27 +5,25 @@
 # В единственной строке входного файла INPUT.TXT
 # записано одно натуральное число А,
 # оканчивающееся на цифру 5, не превышающее 4*105.
-
-with open('input.txt', 'r') as file_in:
-    x = int(file_in.readline())
-p = False
+file_in = open("input.txt")
+file_out = open("output.txt", "w")
+x = int(file_in.readline())
 stroka = str(x)
-# test
-if x > 0 and x <= 4*100000:
+
+if x > 0 and x < 4*100000:
     last_x = stroka[-1]
     if last_x == '5':
-        p = True
+
         chislo = '0'+stroka[:-1]
         a = int(chislo)
         rez = int(str(a*(a+1))+'25')
-
-if p:
-    with open('output.txt', 'w') as file_out:
-        file_out.write(str(rez))
+    else:
+        rez = x*x
 else:
-    with open('output.txt', 'w') as file_out:
-        file_out.write('')
+    rez = ''
 
-
+file_out.write(str(rez))
+file_in.close()
+file_out.close()
 
 
