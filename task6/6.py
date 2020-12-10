@@ -1,4 +1,4 @@
-my_file = open ('input.txt')
+my_file = open('input.txt')
 ll = my_file.read()
 file_out = open('output.txt', 'w')
 
@@ -12,23 +12,25 @@ if len(ll) > 5:
         p = False
     else:
         p = True
-if ll[2] != '-':
-    p = True
 
-if ll[0].upper() in str_abc and  ll[3].upper() in str_abc:
-    first = abs(ord(ll[0])-ord(ll[3]))
-else:
-    p = True
+if not p:
+    if ll[2] != '-':
+        p = True
 
-if ll[1] in '12345678'and  ll[4] in '12345678':
-    second = abs(int(ll[1])-int(ll[4]))
-else:
-    p = True
+    if ll[0] in str_abc and ll[3] in str_abc:
+        first = abs(ord(ll[0])-ord(ll[3]))
+    else:
+        p = True
+
+    if ll[1] in '12345678' and ll[4] in '12345678':
+        second = abs(int(ll[1])-int(ll[4]))
+    else:
+        p = True
 
 if p:
     file_out.write('ERROR')
 else:
-    if(first + second) == 3 and first != 0 and second !=0:
+    if(first + second) == 3 and first != 0 and second != 0:
         file_out.write('YES')
     else:
         file_out.write('NO')
